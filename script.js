@@ -13,6 +13,7 @@ function playRound(playerSelection, computerSelection)
 {
     playerSelection=playerSelection.toLowerCase();
     computerSelection=computerSelection.toLowerCase();
+    let playerWins=0,computerWins=0;
     if(playerSelection == 'rock')
     {
         if(computerSelection == 'paper') computerWins = 1;
@@ -34,3 +35,16 @@ function playRound(playerSelection, computerSelection)
     else if(playerWins) return `You win! ${ps} beats ${cs}.`;
     else return `You lose! ${cs} beats ${ps}.`;
 }
+
+function game()
+{
+    for(let i=0; i<5; i++)
+    {
+        let playerSelection = prompt("Do you want to play rock, paper or scissors?");
+        let computerSelection = computerPlay();
+        let resultMessage = playRound(playerSelection,computerSelection);
+        console.log(resultMessage);
+        alert(resultMessage);
+    }
+}
+game();
