@@ -6,20 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="button-row">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </div>
-    <div class="result"></div>
-    <h2>Score:</h2>
-    <p>Computer: <span class="computer-score">0</span></p>
-    <p>You: <span class="player-score">0</span></p>
+    <div class="title">Rock Paper Scissors</div>
+    <div class="desc footer">You will play against the computer.<br>Choose your play by clicking on of the buttons below. The first one to get to 5 points wins.<br> Good luck! <br> Credits to <a href="https://michaeljaggers.com/">@jaggers</a> for the design idea</div>
 
-    <h3 class="winner-text"></h3>
+    <div class="score-box">
+        <div class="user">user</div>
+        <div class="score">
+            <span class="player-score">0</span>
+            :
+            <span class="computer-score">0</span>
+        </div>
+        <div class="comp">comp</div>
+    </div>
+
+    <div class="button-row">
+        <button id="rock"><img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/rock.png" alt=""></button>
+        <button id="paper"><img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/paper.png" alt=""></button>
+        <button id="scissors"><img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/scissors.png" alt=""></button>
+    </div>
+    <div class="result">Click to play.</div>
+    
+    <div class="winner-text"></div>
 </body>
 
 <script src="script.js"></script>

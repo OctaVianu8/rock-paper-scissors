@@ -31,16 +31,23 @@ function playRound(playerSelection, computerSelection) {
     if (!playerWins && !computerWins) { 
         //playerScore+=0.5;
         //computerScore+=0.5;
-        return 'No one wins! There is a draw.'; 
+        return 'draw';
     }
     else if (playerWins) { 
         playerScore++;
-        return `You win! ${ps} beats ${cs}.`; 
+        return `win`; 
     }
     else { 
         computerScore++;
-        return `You lose! ${cs} beats ${ps}.`; 
+        return `lose`; 
     }
+}
+
+function convertToRoundMessage(string,ps,cs)
+{
+    if(string == 'draw') return 'No one wins! There is a draw.'; 
+    else if (string == 'lose') return `You lose! ${cs} beats ${ps}.`; 
+    else return `You win! ${ps} beats ${cs}.`; 
 }
 
 const winnerText = document.querySelector(".winner-text");
@@ -58,14 +65,28 @@ function checkForWinner()
 }
 
 const buttons = document.querySelectorAll(".button-row button");
-const result = document.querySelector(".result");
+const resultText = document.querySelector(".result");
 const computerScoreText = document.querySelector(".computer-score");
 const playerScoreText = document.querySelector(".player-score");
 
 buttons.forEach(button => button.addEventListener('click', function (e) {
-    result.textContent = playRound(button.id, computerPlay());
+    let cs = computerPlay(), ps = button.id;
+    let result = playRound(ps, cs);
+    resultText.textContent = convertToRoundMessage(result,ps,cs);
     playerScoreText.textContent = playerScore.toString();
     computerScoreText.textContent = computerScore.toString();
+    colorButtons(result,button);
+    button.classList.add()
     checkForWinner();
     //console.log(playRound(button.id,computerPlay()));
 }))
+
+function colorButtons(result,button)
+{
+    buttons.forEach(button => {
+        button.classList.remove('win');
+        button.classList.remove('lose');
+        button.classList.remove('draw');
+    })
+    button.classList.add(result);
+}
